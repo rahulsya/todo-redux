@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from "react-redux";
+import "./styles/App.css";
+import TodoItems from "./components/TodoItems";
+import TodoInput from "./components/TodoInput";
 
 function App() {
+  // todoItems from redux store
+  const Items = useSelector((state) => state);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container todo-container">
+      <div className="title-todo">#todo</div>
+      <TodoInput />
+      {/* render data todo dari redux  */}
+      {Items.map((item, index) => {
+        return <TodoItems data={item} key={index} />;
+      })}
     </div>
   );
 }
