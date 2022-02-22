@@ -1,28 +1,10 @@
-import { useDispatch } from "react-redux";
-import { DeleteTodo, CompleteTodo } from "../Redux/Todo/action";
-
-const TodoItems = ({ data }) => {
-  const dispatch = useDispatch();
-  const { todo, id, completed } = data;
+const TodoItems = () => {
   return (
     <div className="list-todo">
-      <div
-        className={`list-title ${completed == true ? "list-completed" : ""}`}
-      >
-        {todo}
-      </div>
+      <div className="list-title">BuyPizza</div>
       <div className="list-action">
-        {completed == false && (
-          <button
-            className="success"
-            onClick={() => dispatch(CompleteTodo(id))}
-          >
-            Completed
-          </button>
-        )}
-        <button className="danger" onClick={() => dispatch(DeleteTodo(id))}>
-          Delete
-        </button>
+        <button className="success">Completed</button>
+        <button className="danger">Delete</button>
       </div>
     </div>
   );

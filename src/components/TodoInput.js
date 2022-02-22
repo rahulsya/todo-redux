@@ -1,14 +1,10 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AddTodo } from "../Redux/Todo/action";
 
 const TodoInput = () => {
   const [todo, setTodo] = useState("");
-  const dispatch = useDispatch();
 
   const onSumbitTodo = () => {
     if (todo.length) {
-      dispatch(AddTodo(todo));
       setTodo("");
     }
     return;
